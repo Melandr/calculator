@@ -47,10 +47,12 @@ function calculation(event) {
         result.innerText.includes("./")
       ) {
         errorAlert();
+        // } else if (result.innerText.length > 13) {
+
+        // result.innerText = result.innerText.substring(0, result.innerText.length - 1);
       } else {
         result.innerText = eval(result.innerText).toFixed(2);
       }
-
       break;
     case "CE":
     case "Backspace":
