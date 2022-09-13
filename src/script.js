@@ -1,6 +1,9 @@
 const calc = document.querySelector(".calc");
 const result = document.querySelector("#result");
 
+let audioClick = new Audio("./audio/click.mp3");
+let audioError = new Audio("./audio/error_click.mp3");
+
 calc.addEventListener("click", calculation);
 document.addEventListener("keydown", calculation);
 
@@ -8,6 +11,7 @@ function calculation(event) {
   if (!(event.target.classList.contains("calc__btn") || event.key.match(/[0-9%\/*\-+\(\)=]|Backspace|Enter|Delete/)))
     return;
 
+  // audioClick.play();
   let valueInput = event.target.value || event.key;
   switch (valueInput) {
     case "C":
@@ -65,6 +69,7 @@ function calculation(event) {
 }
 
 function errorAlert() {
+  audioError.play();
   setTimeout(() => {
     const alert = document.getElementById("alert");
     alert.style.opacity = "1";
